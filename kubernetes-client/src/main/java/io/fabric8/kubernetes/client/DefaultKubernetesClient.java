@@ -234,7 +234,7 @@ public class DefaultKubernetesClient extends BaseClient implements NamespacedKub
   }
   
   @Override
-  public MixedOperation<StorageClass, StorageClassList, DoneableStorageClass, Resource<StorageClass, DoneableStorageClass>> storageClasses() {
+  public MixedOperation<StorageClass, StorageClassList, DoneableStorageClass, Resource<StorageClass, DoneableStorageClass>> StorageClasses() {
     return new StorageClassOperationsImpl(httpClient, getConfiguration());
   }  
 

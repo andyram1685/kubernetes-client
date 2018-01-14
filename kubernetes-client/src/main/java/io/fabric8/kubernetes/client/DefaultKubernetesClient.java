@@ -54,6 +54,7 @@ import io.fabric8.kubernetes.client.dsl.internal.SecretOperationsImpl;
 import io.fabric8.kubernetes.client.dsl.internal.SecurityContextConstraintsOperationsImpl;
 import io.fabric8.kubernetes.client.dsl.internal.ServiceAccountOperationsImpl;
 import io.fabric8.kubernetes.client.dsl.internal.ServiceOperationsImpl;
+import io.fabric8.kubernetes.client.dsl.internal.StorageClassOperationsImpl;
 import io.fabric8.kubernetes.client.utils.Serialization;
 import io.fabric8.openshift.api.model.DoneableSecurityContextConstraints;
 import io.fabric8.openshift.api.model.SecurityContextConstraints;
@@ -231,6 +232,11 @@ public class DefaultKubernetesClient extends BaseClient implements NamespacedKub
   public <T extends HasMetadata, L extends KubernetesResourceList, D extends Doneable<T>> MixedOperation<T, L, D, Resource<T, D>> customResource(CustomResourceDefinition crd, Class<T> resourceType, Class<L> listClass, Class<D> doneClass) {
     return customResources(crd, resourceType, listClass, doneClass);
   }
+  
+  @Override
+  public MixedOperation<StorageClass, StorageClassList, DoneableStorageClass, Resource<StorageClass, DoneableStorageClass>> storageClasses() {
+    return new StorageClassOperationsImpl(httpClient, getConfiguration());
+  }  
 
   @Override
   public NamespacedKubernetesClient inNamespace(String namespace)

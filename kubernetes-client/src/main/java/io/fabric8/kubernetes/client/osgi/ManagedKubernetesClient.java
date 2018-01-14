@@ -272,8 +272,8 @@ public class ManagedKubernetesClient extends BaseClient implements NamespacedKub
     return delegate.secrets();
   }
   
-  public MixedOperation<StorageClass, StorageClassList, DoneableStorageClass, Resource<StorageClass, DoneableStorageClass>> storageClasses() {
-    return delegate.storageClasses();
+  public MixedOperation<StorageClass, StorageClassList, DoneableStorageClass, Resource<StorageClass, DoneableStorageClass>> StorageClasses() {
+    return delegate.StorageClasses();
   }  
 
   @Override

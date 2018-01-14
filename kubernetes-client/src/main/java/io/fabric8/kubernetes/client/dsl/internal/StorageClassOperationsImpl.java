@@ -1,4 +1,4 @@
-/ * Pesudo code for storage Class implementation.
+/* Pesudo code for storage Class implementation.
 
 import packages and Java Classes 
 
